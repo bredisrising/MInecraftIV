@@ -1,0 +1,35 @@
+#pragma kernel GenerateChunkDataKernel
+
+StructuredBuffer<int3> positions;
+RWStructuredBuffer<int> outputBuffer;
+
+[numthreads(1, 1, 1)]
+void GenerateChunkDataKernel (uint3 id : SV_DispatchThreadID)
+{
+	int3 chunkPos = positions[id.x];
+
+	for(int x = 0; x < 16; x++)
+	{
+		for(int y = 0; y < 16; y++)
+		{
+			for(int z = 0; z < 16; z++)
+			{
+				int3 voxelPosInWorldSpace = chunkPos * 16 + int3(x, y, z);
+
+				if(voxelPosInWorldSpace.y <= 32)
+				{
+					outputBuffer[id.x*4096 + x * 256 + y * 16 + z] = 3;
+				}
+				else
+				{
+					outputBuffer[id.x*4096 + x * 256 + y * 16 + z] = 0;
+				}
+
+				
+				
+			}
+		}	
+	}
+}
+
+

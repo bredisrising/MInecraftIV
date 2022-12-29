@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fba87af772c584d409a2605f9a34745a, type: 3}
+  m_Name: BlockList
+  m_EditorClassIdentifier: 
+  types:
+  - blockName: Air
+    isSolid: 0
+    blockColor: {r: 1, g: 1, b: 1, a: 0}
+    textureFaces: []
+    overlayTextureFaces: []
+  - blockName: Dirt
+    isSolid: 1
+    blockColor: {r: 1, g: 1, b: 1, a: 0}
+    textureFaces:
+    - {fileID: 2800000, guid: 7372c33ba6b9e3347a2f422e6737223e, type: 3}
+    overlayTextureFaces:
+    - {fileID: 2800000, guid: 7372c33ba6b9e3347a2f422e6737223e, type: 3}
+  - blockName: Grass
+    isSolid: 1
+    blockColor: {r: 0.5190005, g: 0.8773585, b: 0.26072446, a: 0}
+    textureFaces:
+    - {fileID: 2800000, guid: e7269840df0eb2642944f8869d13427e, type: 3}
+    - {fileID: 2800000, guid: e7269840df0eb2642944f8869d13427e, type: 3}
+    - {fileID: 2800000, guid: 3d4212eb5e606904ca134942b69d2518, type: 3}
+    - {fileID: 2800000, guid: 7372c33ba6b9e3347a2f422e6737223e, type: 3}
+    - {fileID: 2800000, guid: e7269840df0eb2642944f8869d13427e, type: 3}
+    - {fileID: 2800000, guid: e7269840df0eb2642944f8869d13427e, type: 3}
+    overlayTextureFaces:
+    - {fileID: 2800000, guid: f938737423c8c10479238ba486f55328, type: 3}
+    - {fileID: 2800000, guid: f938737423c8c10479238ba486f55328, type: 3}
+    - {fileID: 2800000, guid: 3d4212eb5e606904ca134942b69d2518, type: 3}
+    - {fileID: 0}
+    - {fileID: 2800000, guid: f938737423c8c10479238ba486f55328, type: 3}
+    - {fileID: 2800000, guid: f938737423c8c10479238ba486f55328, type: 3}
+  - blockName: Stone
+    isSolid: 1
+    blockColor: {r: 1, g: 1, b: 1, a: 0}
+    textureFaces:
+    - {fileID: 2800000, guid: 38e1e45858c26b24aa02dcc95c64cfc3, type: 3}
+    overlayTextureFaces:
+    - {fileID: 2800000, guid: 38e1e45858c26b24aa02dcc95c64cfc3, type: 3}
+  - blockName: Bedrock
+    isSolid: 1
+    blockColor: {r: 1, g: 1, b: 1, a: 0}
+    textureFaces:
+    - {fileID: 2800000, guid: a9fa52ca8aa3de441a1b5fddd6cdd4aa, type: 3}
+    overlayTextureFaces:
+    - {fileID: 2800000, guid: a9fa52ca8aa3de441a1b5fddd6cdd4aa, type: 3}
+  - blockName: Sand
+    isSolid: 1
+    blockColor: {r: 1, g: 1, b: 1, a: 0}
+    textureFaces:
+    - {fileID: 2800000, guid: 240ad8f1f87b0cc49b6b62ba5f149859, type: 3}
+    overlayTextureFaces:
+    - {fileID: 2800000, guid: 240ad8f1f87b0cc49b6b62ba5f149859, type: 3}

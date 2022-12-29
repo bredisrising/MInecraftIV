@@ -1,0 +1,39 @@
+// Each #kernel tells which function to compile; you can have many kernels
+#pragma kernel SetBlock
+#pragma kernel CountBlockFaces
+
+int CHUNK_SIZE = 16;
+
+RWStructuredBuffer<int> blocks;
+
+RWStructuredBuffer<float3> vertices;
+RWStructuredBuffer<int> triangles;
+
+
+RWStructuredBuffer<int> numVertices;
+
+[numthreads(4,4,4)]
+void SetBlock (uint3 id : SV_DispatchThreadID)
+{
+    blocks[id.x * 16 * 16 + id.y * 16 + id.z] = 3;
+}
+
+[numthreads(4,4,4)]
+void CountBlockFaces(uint3 id : SV_DispatchThreadID)
+{
+    int right = (id.x + 1) * CHUNK_SIZE * CHUNK_SIZE + id.y * CHUNK_SIZE + id.z;
+    int left = (id.x - 1) * CHUNK_SIZE * CHUNK_SIZE + id.y * CHUNK_SIZE + id.z;
+    int above = id.x * CHUNK_SIZE * CHUNK_SIZE + (id.y+1) * CHUNK_SIZE + id.z;
+    int below = id.x * CHUNK_SIZE * CHUNK_SIZE + (id.y - 1) * CHUNK_SIZE + id.z;
+    int front = id.x * CHUNK_SIZE * CHUNK_SIZE + id.y * CHUNK_SIZE + (id.z+1);
+    int back = id.x * CHUNK_SIZE * CHUNK_SIZE + id.y * CHUNK_SIZE + (id.z - 1);
+
+    if (right < 4096 && right > 0 && blocks[right] == 0) numVertices[0] += 4;
+    if (left < 4096 && left > 0 && blocks[left] == 0) numVertices[0] += 4;
+    if (above < 4096 && above > 0 && blocks[above] == 0) numVertices[0] += 4;
+    if (below < 4096 && below > 0 && blocks[below] == 0) numVertices[0] += 4;
+    if (front < 4096 && front > 0 && blocks[front] == 0) numVertices[0] += 4;
+    if (back < 4096 && back > 0 && blocks[back] == 0) numVertices[0] += 4;
+
+}
+
