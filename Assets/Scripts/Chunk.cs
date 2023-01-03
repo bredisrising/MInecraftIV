@@ -60,7 +60,7 @@ public class Chunk
 
 	public void buildChunk()
 	{
-		//makeVoxelMap();
+		makeVoxelMap();
 
 		for (int y = 0; y < VoxelData.chunkDim; y++)
 		{
@@ -200,32 +200,32 @@ public class Chunk
 
 
 
-			//if (!checkBlockExists(pos + VoxelData.faceChecks[face])) // adds face checks to see if the face is facing a voxel or not
-			//{
-			//	vertices.Add(VoxelData.voxelVertices[VoxelData.voxelTriangles[face * 4]] + pos);
-			//	vertices.Add(VoxelData.voxelVertices[VoxelData.voxelTriangles[face * 4 + 1]] + pos);
-			//	vertices.Add(VoxelData.voxelVertices[VoxelData.voxelTriangles[face * 4 + 2]] + pos);
-			//	vertices.Add(VoxelData.voxelVertices[VoxelData.voxelTriangles[face * 4 + 3]] + pos);
+            if (!checkBlockExists(pos + VoxelData.faceChecks[face])) // adds face checks to see if the face is facing a voxel or not
+            {
+                vertices.Add(VoxelData.voxelVertices[VoxelData.voxelTriangles[face * 4]] + pos);
+                vertices.Add(VoxelData.voxelVertices[VoxelData.voxelTriangles[face * 4 + 1]] + pos);
+                vertices.Add(VoxelData.voxelVertices[VoxelData.voxelTriangles[face * 4 + 2]] + pos);
+                vertices.Add(VoxelData.voxelVertices[VoxelData.voxelTriangles[face * 4 + 3]] + pos);
 
-			//	triangles.Add(vertices.Count - 4);
-			//	triangles.Add(vertices.Count - 3);
-			//	triangles.Add(vertices.Count - 2);
+                triangles.Add(vertices.Count - 4);
+                triangles.Add(vertices.Count - 3);
+                triangles.Add(vertices.Count - 2);
 
-			//	triangles.Add(vertices.Count - 2);
-			//	triangles.Add(vertices.Count - 1);
-			//	triangles.Add(vertices.Count - 4);
+                triangles.Add(vertices.Count - 2);
+                triangles.Add(vertices.Count - 1);
+                triangles.Add(vertices.Count - 4);
 
-			//	addTexture(block, face);
+                addTexture(block, face);
 
-			//	Color color = world.blockList.types[block].blockColor;
-			//	colors.Add(color);
-			//	colors.Add(color);
-			//	colors.Add(color);
-			//	colors.Add(color);
+                Color color = world.blockList.types[block].blockColor;
+                colors.Add(color);
+                colors.Add(color);
+                colors.Add(color);
+                colors.Add(color);
 
-			//}
+            }
 
-		}
+        }
 	}
 
 

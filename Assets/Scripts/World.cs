@@ -51,8 +51,8 @@ public class World : MonoBehaviour
 
 		if (chunksToGen.Count > 0 && !isCreatingChunks)
 		{
-			//StartCoroutine(genChunks());
-			genChunksImmediately();
+			StartCoroutine(genChunks());
+			//genChunksImmediately();
 		}
 			
 
