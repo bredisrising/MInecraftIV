@@ -20,7 +20,7 @@ public class NewWorld : MonoBehaviour
 
 
 	int3[] chunkPositions = new int3[8 * VoxelData.cubicWorldSize + 10];
-
+	
 	void Start()
     {
 		player.position = new Vector3(2 * 16, 20, 2 * 16);
