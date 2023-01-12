@@ -148,7 +148,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 230919335}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7273eaeee540d6f44acf02d53818b1b1, type: 3}
   m_Name: 
@@ -158,7 +158,7 @@ MonoBehaviour:
   spawnPosition: {x: 0, y: 0, z: 0}
   worldMat: {fileID: 2100000, guid: 307c038fedbd78c40b6de369ab61b29d, type: 2}
   blockList: {fileID: 11400000, guid: a17edf9e1299de94aa7ff68e2084d87c, type: 2}
-  terrainGen: {fileID: 0}
+  terrainGen: {fileID: 11400000, guid: a39667b3a13fe234e8293b1626062f3f, type: 2}
   shader: {fileID: 7200000, guid: 267111c2604532e4aa6d731725f3d234, type: 3}
 --- !u!4 &230919337
 Transform:

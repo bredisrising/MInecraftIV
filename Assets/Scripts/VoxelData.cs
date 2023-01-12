@@ -24,8 +24,8 @@ public class VoxelData
     public static readonly float normalizedAtlasBlockSizeX = 1f / 6; //6 for 6 faces
 
 
-    public static readonly int viewDistanceInChonksXZ = 5;
-    public static readonly int viewDistanceInChonksY = 5;
+    public static readonly int viewDistanceInChonksXZ = 2;
+    public static readonly int viewDistanceInChonksY = 2;
 	public static readonly int cubicWorldSize = viewDistanceInChonksXZ * viewDistanceInChonksXZ * viewDistanceInChonksY;
 
 

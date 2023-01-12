@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-public class TerrainGenerator : MonoBehaviour
+[CreateAssetMenu(menuName = "MinecraftIV/Terrain Generator")]
+public class TerrainGenerator : ScriptableObject
 {
 	public string biomeName;
 
@@ -33,11 +33,8 @@ public class TerrainGenerator : MonoBehaviour
 
 		for (int i = 0; i < amplitudes.Length; i++) 
 		{
-			if (count <= 16) Debug.Log(amplitudes[i] + " " + frequencies[i]); 
 			y += Mathf.FloorToInt(amplitudes[i] * get2DPerlin(new Vector2(position.x, position.z), 1, frequencies[i]));
-			if (count <= 16) Debug.Log(y);
 		}
-
 
 
 		return y;

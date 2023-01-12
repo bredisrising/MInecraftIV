@@ -76,6 +76,9 @@ public class NewWorld : MonoBehaviour
 
 
 		int i = 0;
+
+		float startTime = Time.realtimeSinceStartup;
+
 		for (int x = playerPos.x - VoxelData.viewDistanceInChonksXZ; x < playerPos.x + VoxelData.viewDistanceInChonksXZ; x++)
 		{
 			for (int y = playerPos.y - VoxelData.viewDistanceInChonksY; y < playerPos.y + VoxelData.viewDistanceInChonksY; y++)
@@ -92,11 +95,14 @@ public class NewWorld : MonoBehaviour
 			}
 		}
 
+		float endTime = Time.realtimeSinceStartup;
+		Debug.Log("checking view distance and and allocating " + (endTime - startTime) * 1000);
+
+
 		if (size <= 0)
 			return;
 
 		int initSize = size;
-
 		int[] blockMap = new int[4096 * initSize];
 
 		ComputeBuffer blockMapCB = new ComputeBuffer(initSize * 4096, sizeof(int));
@@ -106,15 +112,28 @@ public class NewWorld : MonoBehaviour
 		chunkPositionsCB.SetData(chunkPositions);
 
 
+
 		terrainGenShader.SetBuffer(0, "positions", chunkPositionsCB);
 		terrainGenShader.SetBuffer(0, "outputBuffer", blockMapCB);
 
-		terrainGenShader.Dispatch(0, initSize, 1, 1);
+		terrainGenShader.Dispatch(0, initSize * 16, 1, 1);
+
+		
+
+		startTime = Time.realtimeSinceStartup;
 
 		blockMapCB.GetData(blockMap);
 
+		endTime = Time.realtimeSinceStartup;
+		Debug.Log("allocate and dispatch shader" + (endTime - startTime) * 1000);
+
 		blockMapCB.Dispose();
 		chunkPositionsCB.Dispose();
+
+		
+
+		
+
 
 		for(int index = 0; index < initSize; index++)
 		{

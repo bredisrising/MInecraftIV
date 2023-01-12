@@ -85,6 +85,8 @@ public class StaticChunkRendering : MonoBehaviour
 		//but the vertices are already in order
 		//so using i is fine
 
+		
+
 		int block = blockMap[index*4096 + (int)pos.x * VoxelData.chunkDim2 + (int)pos.y * VoxelData.chunkDim + (int)pos.z];
 
 		if (block == 0)
@@ -118,10 +120,6 @@ public class StaticChunkRendering : MonoBehaviour
 			}
 
 		}
-
-
-
-
 
 	}
 
